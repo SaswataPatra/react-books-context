@@ -6,10 +6,13 @@ function Provider({ children }) {
 
   const valueToShare = {
     count,
-    incrementCounter : () => {
-        setCount(count + 1);
-  }
-};
+    incrementCounter: () => {
+      setCount(count + 1);
+    },
+    setCountToZero: () => {
+      setCount(0);
+    },
+  };
   return (
     <BooksContext.Provider value={valueToShare}>
       {children}
