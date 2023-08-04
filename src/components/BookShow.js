@@ -1,21 +1,18 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import BookEdit from "./BookEdit";
-import { useContext } from "react";
 import BooksContext from "../context/Books";
-function BookShow({ book, onDelete, onEdit }) {
-  const {count, incrementCounter,setCountToZero} = useContext(BooksContext);
-
+function BookShow({ book }) {
   const [showEdit, setShowEdit] = useState(false);
+  const {deleteBookById} = useContext(BooksContext);
 
   const handleDeleteClick = () => {
-    onDelete(book.id);
+    deleteBookById(book.id);
   };
   const handleEditClick = () => {
     setShowEdit(!showEdit);
   };
-  const handSubmit = (id, newTitle) => {
+  const handSubmit = () => {
     setShowEdit(false);
-    onEdit(id, newTitle);
   };
 
   let content = book.title;
@@ -24,9 +21,6 @@ function BookShow({ book, onDelete, onEdit }) {
   }
   return (
     <div className="book-show">
-      {count} {" "}
-      <button onClick={incrementCounter}>click me!</button>
-      <button onClick={setCountToZero}>Dont click!</button>
       <img
         alt="books"
         src={`https://picsum.photos/seed/${book.id}300/200`}

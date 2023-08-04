@@ -7,6 +7,10 @@
     {
       "title": "hi",
       "id": 2
+    },
+    {
+      "title": "Not a good book",
+      "id": 3
     }
   ]
 }
