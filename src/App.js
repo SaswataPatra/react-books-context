@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     fetchbooks();
-  }, []);
+  }, [fetchbooks]);
 
   return (
     <div className="app">
